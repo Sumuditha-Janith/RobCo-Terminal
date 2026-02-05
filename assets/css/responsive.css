@@ -1,0 +1,460 @@
+/*
+ * RobCo Industries Responsive Display System
+ * Supports: Mobile, Tablet, Desktop, Ultrawide, and CRT TV modes
+ */
+
+/* ============================================
+   BASE MOBILE STYLES (Mobile-first approach)
+   ============================================ */
+
+/* Extra Small Devices (Phones, < 576px) */
+@media only screen and (max-width: 575.98px) {
+    .pipboy-screen {
+        width: 95%;
+        height: 85vh;
+        padding: 10px;
+        border-width: 1px;
+        border-radius: 5px;
+    }
+
+    .header, .footer {
+        font-size: 0.8rem;
+    }
+
+    .tab-menu span {
+        margin-right: 8px;
+        font-size: 0.7rem;
+    }
+
+    .content {
+        font-size: 0.9rem;
+        line-height: 1.2;
+    }
+
+    /* Adjust CRT effects for small screens */
+    .scanlines {
+        background-size: 100% 3px;
+    }
+
+    .flicker-overlay {
+        animation: flicker 0.2s infinite;
+    }
+}
+
+/* ============================================
+   SMALL TABLET / LARGE PHONE (576px - 767px)
+   ============================================ */
+@media only screen and (min-width: 576px) and (max-width: 767.98px) {
+    .pipboy-screen {
+        width: 85%;
+        height: 75vh;
+        padding: 15px;
+    }
+
+    .header, .footer {
+        font-size: 0.85rem;
+    }
+
+    .tab-menu span {
+        margin-inline: 0.75rem;
+    }
+
+    .content {
+        font-size: 1rem;
+    }
+
+    /* Adjust terminal text for better readability */
+    .content::-webkit-scrollbar {
+        width: 8px;
+    }
+}
+
+/* ============================================
+   TABLET PORTRAIT (768px - 991px)
+   ============================================ */
+@media only screen and (min-width: 768px) and (max-width: 991.98px) {
+    .pipboy-screen {
+        width: 80%;
+        max-width: 700px;
+        height: 70vh;
+    }
+
+    .header, .footer {
+        font-size: 0.9rem;
+    }
+
+    .tab-menu span {
+        font-size: 0.85rem;
+        margin-right: 12px;
+    }
+
+    .content {
+        font-size: 1.1rem;
+        line-height: 1.3;
+    }
+
+    /* Enhance CRT effect for tablet */
+    .scanlines {
+        background-size: 100% 3.5px;
+    }
+}
+
+/* ============================================
+   TABLET LANDSCAPE / SMALL DESKTOP (992px - 1199px)
+   ============================================ */
+@media only screen and (min-width: 992px) and (max-width: 1199.98px) {
+    .pipboy-screen {
+        width: 75%;
+        max-width: 750px;
+        height: 75vh;
+    }
+
+    /* Default styles already work well here */
+    .content {
+        font-size: 1.15rem;
+    }
+
+    /* Slightly reduce flicker for desktop viewing */
+    .flicker-overlay {
+        animation: flicker 0.18s infinite;
+    }
+}
+
+/* ============================================
+   STANDARD DESKTOP (1200px - 1439px)
+   ============================================ */
+@media only screen and (min-width: 1200px) and (max-width: 1439.98px) {
+    .pipboy-screen {
+        width: 70%;
+        max-width: 800px;
+        height: 70vh;
+    }
+
+    .header, .footer {
+        font-size: 1rem;
+    }
+
+    .tab-menu span {
+        font-size: 0.9rem;
+        margin-right: 15px;
+    }
+
+    .content {
+        font-size: 1.2rem;
+        line-height: 1.4;
+    }
+
+    /* Optimize scanlines for desktop */
+    .scanlines {
+        background-size: 100% 4px;
+        opacity: 0.3;
+    }
+}
+
+/* ============================================
+   LARGE DESKTOP / HD DISPLAYS (1440px - 1919px)
+   ============================================ */
+@media only screen and (min-width: 1440px) and (max-width: 1919.98px) {
+    .pipboy-screen {
+        width: 65%;
+        max-width: 900px;
+        height: 75vh;
+    }
+
+    .content {
+        font-size: 1.3rem;
+        line-height: 1.5;
+    }
+
+    /* Enhance glow effects for larger screens */
+    .pipboy-screen {
+        box-shadow:
+                0 0 30px var(--pip-glow),
+                inset 0 0 30px var(--pip-glow);
+    }
+
+    .tab-menu span.active {
+        text-shadow: 0 0 12px var(--pip-green);
+    }
+}
+
+/* ============================================
+   ULTRAWIDE / 4K DISPLAYS (1920px and above)
+   ============================================ */
+@media only screen and (min-width: 1920px) {
+    .pipboy-screen {
+        width: 60%;
+        max-width: 1000px;
+        height: 80vh;
+    }
+
+    .header, .footer {
+        font-size: 1.1rem;
+    }
+
+    .tab-menu span {
+        font-size: 1rem;
+        margin-right: 20px;
+    }
+
+    .content {
+        font-size: 1.4rem;
+        line-height: 1.6;
+    }
+
+    /* Magnified CRT effects for large displays */
+    .scanlines {
+        background: linear-gradient(
+                to bottom,
+                rgba(255,255,255,0),
+                rgba(255,255,255,0) 50%,
+                rgba(0,0,0,0.3) 50%,
+                rgba(0,0,0,0.3)
+        );
+        background-size: 100% 5px;
+    }
+
+    .flicker-overlay {
+        animation: flicker 0.12s infinite;
+    }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+@media print {
+    body {
+        background-color: white !important;
+        color: black !important;
+    }
+
+    .pipboy-screen {
+        border: 1px solid #ccc !important;
+        box-shadow: none !important;
+        background: white !important;
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .scanlines,
+    .flicker-overlay,
+    #cursor {
+        display: none !important;
+    }
+
+    .header, .footer {
+        opacity: 1 !important;
+        color: black !important;
+        border-color: #ccc !important;
+    }
+
+    .content {
+        color: black !important;
+        text-shadow: none !important;
+    }
+
+    .tab-menu span.active {
+        text-shadow: none !important;
+        text-decoration: underline !important;
+    }
+}
+
+/* ============================================
+   DARK MODE SUPPORT (for modern OS/browsers)
+   ============================================ */
+@media (prefers-color-scheme: dark) {
+    /* Already optimized for dark mode - these are enhancements */
+    .pipboy-screen {
+        --pip-green: #00ff00;
+        --pip-glow: #00cc00;
+    }
+}
+
+/* ============================================
+   REDUCED MOTION PREFERENCE
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+    .pipboy-screen,
+    .flicker-overlay,
+    #cursor {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .pipboy-screen {
+        animation: turnOn 2s ease-out forwards !important;
+    }
+
+    .flicker-overlay {
+        opacity: 0.03;
+        animation: none;
+    }
+
+    #cursor {
+        animation: blink 2s step-end infinite !important;
+    }
+}
+
+/* ============================================
+   HIGH CONTRAST MODE
+   ============================================ */
+@media (prefers-contrast: high) {
+    .pipboy-screen {
+        --pip-green: #00ff00;
+        --pip-glow: #00ff00;
+        border: 3px solid var(--pip-green);
+    }
+
+    .scanlines {
+        background: linear-gradient(
+                to bottom,
+                rgba(255,255,255,0),
+                rgba(255,255,255,0) 50%,
+                rgba(0,0,0,0.5) 50%,
+                rgba(0,0,0,0.5)
+        );
+    }
+}
+
+/* ============================================
+   PORTRAIT ORIENTATION SPECIFIC
+   ============================================ */
+@media (orientation: portrait) and (max-height: 600px) {
+    .pipboy-screen {
+        height: 90vh;
+        max-height: none;
+    }
+
+    .content {
+        max-height: 60vh;
+    }
+}
+
+/* ============================================
+   LANDSCAPE ORIENTATION SPECIFIC
+   ============================================ */
+@media (orientation: landscape) and (max-height: 500px) {
+    .pipboy-screen {
+        height: 95vh;
+        flex-direction: row;
+        padding: 10px;
+    }
+
+    .header, .footer {
+        flex-direction: column;
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+    }
+
+    .header {
+        border-bottom: none;
+        border-right: 2px solid var(--pip-green);
+        padding-bottom: 0;
+        margin-bottom: 0;
+        margin-right: 15px;
+    }
+
+    .footer {
+        border-top: none;
+        border-left: 2px solid var(--pip-green);
+        padding-top: 0;
+        margin-top: 0;
+        margin-left: 15px;
+    }
+
+    .content {
+        flex-grow: 1;
+        font-size: 1rem;
+    }
+
+    .tab-menu span {
+        display: block;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
+
+/* ============================================
+   CRT TV MODE EMULATION
+   ============================================ */
+@media only screen and (max-width: 1024px) and (min-aspect-ratio: 4/3) {
+    /* Simulate old CRT TV aspect ratio and effects */
+    .pipboy-screen {
+        aspect-ratio: 4/3;
+        width: 80%;
+        max-width: 800px;
+        height: auto;
+        max-height: 600px;
+        border-radius: 0;
+        border: 15px solid #222;
+        box-shadow:
+                0 0 40px rgba(0, 0, 0, 0.8),
+                inset 0 0 20px rgba(0, 179, 0, 0.3);
+    }
+
+    /* Enhanced CRT curvature effect */
+    .pipboy-screen::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(
+                ellipse at center,
+                transparent 0%,
+                transparent 40%,
+                rgba(0, 0, 0, 0.1) 100%
+        );
+        pointer-events: none;
+        z-index: 5;
+    }
+
+    /* Stronger scanlines for CRT effect */
+    .scanlines {
+        background: linear-gradient(
+                to bottom,
+                transparent 0%,
+                transparent 50%,
+                rgba(0, 0, 0, 0.4) 50%,
+                rgba(0, 0, 0, 0.4) 100%
+        );
+        background-size: 100% 4px;
+    }
+}
+
+/* ============================================
+   TOUSCREEN OPTIMIZATIONS
+   ============================================ */
+@media (pointer: coarse) and (hover: none) {
+    .tab-menu span {
+        padding: 8px 12px;
+        margin-right: 10px;
+        min-width: 60px;
+        text-align: center;
+    }
+
+    .content::-webkit-scrollbar {
+        width: 12px;
+    }
+
+    .content::-webkit-scrollbar-thumb {
+        min-height: 40px;
+    }
+}
+
+/* ============================================
+   HOVER DEVICE OPTIMIZATIONS
+   ============================================ */
+@media (pointer: fine) and (hover: hover) {
+    .tab-menu span:hover {
+        opacity: 0.8;
+        cursor: pointer;
+        transition: opacity 0.2s;
+    }
+
+    .content::-webkit-scrollbar-thumb:hover {
+        background: #00ff00;
+    }
+}
