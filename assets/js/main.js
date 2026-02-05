@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const themeManager = new ThemeManager();
+    themeManager.initialize();
+    
     const app = new RobCoTerminal();
     app.initialize();
 });

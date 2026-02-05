@@ -15,6 +15,11 @@
         padding: 10px;
         border-width: 1px;
         border-radius: 5px;
+        box-shadow: 
+            0 0 10px var(--pip-primary),
+            0 0 20px var(--pip-glow),
+            inset 0 0 10px var(--pip-primary),
+            inset 0 0 20px var(--pip-glow);
     }
 
     .header, .footer {
@@ -39,6 +44,21 @@
     .flicker-overlay {
         animation: flicker 0.2s infinite;
     }
+
+    /* Theme toggle button adjustments */
+    .theme-toggle {
+        top: 10px;
+        right: 10px;
+        width: 36px;
+        height: 36px;
+        padding: 6px;
+    }
+
+    .theme-indicator {
+        font-size: 0.6rem;
+        bottom: 5px;
+        right: 5px;
+    }
 }
 
 /* ============================================
@@ -49,6 +69,11 @@
         width: 85%;
         height: 75vh;
         padding: 15px;
+        box-shadow: 
+            0 0 12px var(--pip-primary),
+            0 0 25px var(--pip-glow),
+            inset 0 0 12px var(--pip-primary),
+            inset 0 0 25px var(--pip-glow);
     }
 
     .header, .footer {
@@ -67,6 +92,26 @@
     .content::-webkit-scrollbar {
         width: 8px;
     }
+
+    /* White theme needs stronger glow on small screens */
+    .theme-white .pipboy-screen {
+        box-shadow: 
+            0 0 15px var(--pip-primary),
+            0 0 30px var(--pip-glow),
+            inset 0 0 15px var(--pip-primary),
+            inset 0 0 30px var(--pip-glow);
+    }
+    
+    .theme-white .tab-menu span.active {
+        text-shadow: 0 0 10px var(--pip-primary);
+    }
+
+    .theme-toggle {
+        top: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+    }
 }
 
 /* ============================================
@@ -77,6 +122,11 @@
         width: 80%;
         max-width: 700px;
         height: 70vh;
+        box-shadow: 
+            0 0 15px var(--pip-primary),
+            0 0 30px var(--pip-glow),
+            inset 0 0 15px var(--pip-primary),
+            inset 0 0 30px var(--pip-glow);
     }
 
     .header, .footer {
@@ -97,6 +147,16 @@
     .scanlines {
         background-size: 100% 3.5px;
     }
+
+    /* Blue theme adjustments for tablets */
+    .theme-blue .content {
+        text-shadow: 0 0 5px var(--pip-glow);
+    }
+
+    .theme-toggle {
+        top: 20px;
+        right: 20px;
+    }
 }
 
 /* ============================================
@@ -107,6 +167,11 @@
         width: 75%;
         max-width: 750px;
         height: 75vh;
+        box-shadow: 
+            0 0 18px var(--pip-primary),
+            0 0 35px var(--pip-glow),
+            inset 0 0 18px var(--pip-primary),
+            inset 0 0 35px var(--pip-glow);
     }
 
     /* Default styles already work well here */
@@ -118,6 +183,13 @@
     .flicker-overlay {
         animation: flicker 0.18s infinite;
     }
+
+    .theme-toggle:hover {
+        transform: scale(1.15);
+        box-shadow: 
+            0 0 18px var(--pip-primary),
+            0 0 35px var(--pip-glow);
+    }
 }
 
 /* ============================================
@@ -128,6 +200,11 @@
         width: 70%;
         max-width: 800px;
         height: 70vh;
+        box-shadow: 
+            0 0 20px var(--pip-primary),
+            0 0 40px var(--pip-glow),
+            inset 0 0 20px var(--pip-primary),
+            inset 0 0 40px var(--pip-glow);
     }
 
     .header, .footer {
@@ -149,6 +226,11 @@
         background-size: 100% 4px;
         opacity: 0.3;
     }
+
+    .theme-toggle {
+        width: 45px;
+        height: 45px;
+    }
 }
 
 /* ============================================
@@ -159,6 +241,11 @@
         width: 65%;
         max-width: 900px;
         height: 75vh;
+        box-shadow: 
+            0 0 25px var(--pip-primary),
+            0 0 50px var(--pip-glow),
+            inset 0 0 25px var(--pip-primary),
+            inset 0 0 50px var(--pip-glow);
     }
 
     .content {
@@ -167,14 +254,15 @@
     }
 
     /* Enhance glow effects for larger screens */
-    .pipboy-screen {
-        box-shadow:
-                0 0 30px var(--pip-glow),
-                inset 0 0 30px var(--pip-glow);
+    .tab-menu span.active {
+        text-shadow: 0 0 12px var(--pip-primary);
     }
 
-    .tab-menu span.active {
-        text-shadow: 0 0 12px var(--pip-green);
+    .theme-toggle {
+        top: 25px;
+        right: 25px;
+        width: 50px;
+        height: 50px;
     }
 }
 
@@ -186,6 +274,11 @@
         width: 60%;
         max-width: 1000px;
         height: 80vh;
+        box-shadow: 
+            0 0 30px var(--pip-primary),
+            0 0 60px var(--pip-glow),
+            inset 0 0 30px var(--pip-primary),
+            inset 0 0 60px var(--pip-glow);
     }
 
     .header, .footer {
@@ -217,6 +310,13 @@
     .flicker-overlay {
         animation: flicker 0.12s infinite;
     }
+
+    .theme-toggle {
+        top: 30px;
+        right: 30px;
+        width: 55px;
+        height: 55px;
+    }
 }
 
 /* ============================================
@@ -239,7 +339,8 @@
 
     .scanlines,
     .flicker-overlay,
-    #cursor {
+    #cursor,
+    .theme-toggle {
         display: none !important;
     }
 
@@ -258,6 +359,11 @@
         text-shadow: none !important;
         text-decoration: underline !important;
     }
+
+    .theme-indicator {
+        color: #666 !important;
+        opacity: 0.7 !important;
+    }
 }
 
 /* ============================================
@@ -266,8 +372,11 @@
 @media (prefers-color-scheme: dark) {
     /* Already optimized for dark mode - these are enhancements */
     .pipboy-screen {
-        --pip-green: #00ff00;
-        --pip-glow: #00cc00;
+        --pip-glow: rgba(var(--pip-glow-rgb, 0, 77, 0), 0.8);
+    }
+    
+    .theme-toggle {
+        background-color: rgba(0, 0, 0, 0.3);
     }
 }
 
@@ -277,7 +386,8 @@
 @media (prefers-reduced-motion: reduce) {
     .pipboy-screen,
     .flicker-overlay,
-    #cursor {
+    #cursor,
+    .theme-toggle {
         animation: none !important;
         transition: none !important;
     }
@@ -294,6 +404,15 @@
     #cursor {
         animation: blink 2s step-end infinite !important;
     }
+    
+    .theme-toggle {
+        animation: none !important;
+    }
+    
+    .theme-toggle:hover svg {
+        transition: none !important;
+        transform: none !important;
+    }
 }
 
 /* ============================================
@@ -301,9 +420,30 @@
    ============================================ */
 @media (prefers-contrast: high) {
     .pipboy-screen {
-        --pip-green: #00ff00;
-        --pip-glow: #00ff00;
-        border: 3px solid var(--pip-green);
+        border: 3px solid var(--pip-primary) !important;
+        box-shadow: 
+            0 0 20px var(--pip-primary),
+            inset 0 0 20px var(--pip-primary) !important;
+    }
+    
+    .theme-green .pipboy-screen {
+        --pip-primary: #00ff00 !important;
+        --pip-glow: #00ff00 !important;
+    }
+    
+    .theme-amber .pipboy-screen {
+        --pip-primary: #ffa500 !important;
+        --pip-glow: #ffa500 !important;
+    }
+    
+    .theme-white .pipboy-screen {
+        --pip-primary: #ffffff !important;
+        --pip-glow: #ffffff !important;
+    }
+    
+    .theme-blue .pipboy-screen {
+        --pip-primary: #00ffff !important;
+        --pip-glow: #00ffff !important;
     }
 
     .scanlines {
@@ -313,7 +453,12 @@
                 rgba(255,255,255,0) 50%,
                 rgba(0,0,0,0.5) 50%,
                 rgba(0,0,0,0.5)
-        );
+        ) !important;
+    }
+    
+    .theme-toggle {
+        border: 3px solid var(--pip-primary) !important;
+        background-color: #000 !important;
     }
 }
 
@@ -328,6 +473,11 @@
 
     .content {
         max-height: 60vh;
+    }
+    
+    .theme-toggle {
+        top: 10px;
+        right: 10px;
     }
 }
 
@@ -349,7 +499,7 @@
 
     .header {
         border-bottom: none;
-        border-right: 2px solid var(--pip-green);
+        border-right: 2px solid var(--pip-primary);
         padding-bottom: 0;
         margin-bottom: 0;
         margin-right: 15px;
@@ -357,7 +507,7 @@
 
     .footer {
         border-top: none;
-        border-left: 2px solid var(--pip-green);
+        border-left: 2px solid var(--pip-primary);
         padding-top: 0;
         margin-top: 0;
         margin-left: 15px;
@@ -372,6 +522,21 @@
         display: block;
         margin-right: 0;
         margin-bottom: 10px;
+    }
+    
+    .theme-toggle {
+        top: 10px;
+        right: 10px;
+        width: 35px;
+        height: 35px;
+    }
+    
+    .theme-indicator {
+        writing-mode: horizontal-tb;
+        text-orientation: mixed;
+        bottom: 5px;
+        right: 5px;
+        font-size: 0.6rem;
     }
 }
 
@@ -388,9 +553,10 @@
         max-height: 600px;
         border-radius: 0;
         border: 15px solid #222;
-        box-shadow:
-                0 0 40px rgba(0, 0, 0, 0.8),
-                inset 0 0 20px rgba(0, 179, 0, 0.3);
+        box-shadow: 
+            0 0 40px rgba(0, 0, 0, 0.8),
+            0 0 25px var(--pip-primary),
+            inset 0 0 30px var(--pip-glow);
     }
 
     /* Enhanced CRT curvature effect */
@@ -422,10 +588,16 @@
         );
         background-size: 100% 4px;
     }
+    
+    .theme-toggle {
+        top: 5px;
+        right: 5px;
+        border-width: 3px;
+    }
 }
 
 /* ============================================
-   TOUSCREEN OPTIMIZATIONS
+   TOUCHSCREEN OPTIMIZATIONS
    ============================================ */
 @media (pointer: coarse) and (hover: none) {
     .tab-menu span {
@@ -442,6 +614,19 @@
     .content::-webkit-scrollbar-thumb {
         min-height: 40px;
     }
+    
+    .theme-toggle {
+        width: 48px;
+        height: 48px;
+        top: 15px;
+        right: 15px;
+        padding: 10px;
+        touch-action: manipulation;
+    }
+    
+    .theme-toggle:active {
+        transform: scale(0.9);
+    }
 }
 
 /* ============================================
@@ -455,6 +640,77 @@
     }
 
     .content::-webkit-scrollbar-thumb:hover {
-        background: #00ff00;
+        background: var(--pip-primary);
+        opacity: 0.8;
+    }
+    
+    .theme-toggle:hover svg {
+        transform: rotate(90deg);
+        transition: transform 0.3s ease;
+    }
+}
+
+/* ============================================
+   THEME-SPECIFIC ENHANCEMENTS
+   ============================================ */
+
+/* Amber theme adjustments for different screen sizes */
+@media only screen and (max-width: 575.98px) {
+    .theme-amber .pipboy-screen {
+        box-shadow: 
+            0 0 12px var(--pip-primary),
+            0 0 25px var(--pip-glow),
+            inset 0 0 12px var(--pip-primary),
+            inset 0 0 25px var(--pip-glow);
+    }
+}
+
+/* White theme adjustments for better visibility */
+@media only screen and (max-width: 767.98px) {
+    .theme-white .pipboy-screen {
+        box-shadow: 
+            0 0 15px var(--pip-primary),
+            0 0 35px var(--pip-glow),
+            inset 0 0 15px var(--pip-primary),
+            inset 0 0 35px var(--pip-glow);
+    }
+    
+    .theme-white .tab-menu span.active {
+        text-shadow: 0 0 12px var(--pip-primary);
+    }
+}
+
+/* Blue theme adjustments for larger screens */
+@media only screen and (min-width: 768px) {
+    .theme-blue .content {
+        text-shadow: 0 0 6px var(--pip-glow);
+    }
+}
+
+/* ============================================
+   ACCESSIBILITY IMPROVEMENTS
+   ============================================ */
+
+/* For users who prefer less animations */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        animation: none !important;
+    }
+    
+    .pipboy-screen {
+        animation: turnOn 1s ease-out forwards !important;
+    }
+    
+    .theme-toggle {
+        animation: none !important;
+    }
+}
+
+/* For users who need larger text */
+@media (prefers-reduced-motion: no-preference) and (prefers-contrast: more) {
+    .content {
+        line-height: 1.6 !important;
+        letter-spacing: 1.2px !important;
     }
 }
